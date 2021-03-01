@@ -75,7 +75,7 @@ footer {
     <ul>
       <li><a href='dashboard.php'>Dashboard</a></li>
       <li><a href='viewprofile.php'>View Profile</a></li>
-      <li><a href=' .php'>Edit Profile</a></li>
+      <li><a href=' editprofile.php'>Edit Profile</a></li>
       <li><a href='chngprofilepic.php'>Change Profile Picture</a></li>
       <li><a href=' changepassword.php'>Change Password</a></li>
        <li><a href=' logout.php'>Log Out</a></li>

@@ -86,7 +86,7 @@
   echo "<h3>Input:</h3>";
 echo "current password: "; echo $cpass;
 echo "<br>";
-echo "new password: "; echo $npass;
+echo "new password: "; echo $rpass;
 
 
   ?>

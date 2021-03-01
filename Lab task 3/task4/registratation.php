@@ -91,8 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
        if(empty($_POST["cpassword"]))
        {
-        $cpassErr="*Please Confirm your password";
-        $cpass="";
+        $cpassErr="*Retype to Confirm your password";
         $check=0;
        }
        else

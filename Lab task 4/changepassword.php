@@ -128,19 +128,38 @@ footer {
 
   ?>
 
+
 <section>
+
+      <?php 
+
+
+
+if (isset($_SESSION['username'])) {
+  echo "  
   <nav>
-     <div align="center">Account</div>
+     <div align='center'>Account</div>
     <hr>
     <ul>
       <li><a href='dashboard.php'>Dashboard</a></li>
       <li><a href='viewprofile.php'>View Profile</a></li>
-      <li><a href=' .php'>Edit Profile</a></li>
+      <li><a href='editprofile.php'>Edit Profile</a></li>
       <li><a href='chngprofilepic.php'>Change Profile Picture</a></li>
       <li><a href=' changepassword.php'>Change Password</a></li>
        <li><a href=' logout.php'>Log Out</a></li>
     </ul>
-  </nav>
+  </nav>";
+
+
+}
+else{
+    $msg="error";
+    header("location:loginpage.php");
+    // echo "<script>location.href='login.php'</script>";
+  }
+
+ ?>
+
   
   <article>
 

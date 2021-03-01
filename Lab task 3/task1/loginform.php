@@ -39,14 +39,14 @@
   else {
 
   	   $pass =$_POST["password"];
-  	   $specialChars = preg_match('@[^\w]@', $pass);
+  	 
   	   if(strlen($pass)<8)
   	   {
   	   	$passErr="*must contain at least 8 charaters";
   	   	$pass="";
   	   }
   	   
-  	  else if (strlen($specialChars)<1) {
+  	  else if (!preg_match('@[^\w]@', $pass)) {
       $passErr = "*must contain one special character";
       $pass="";
 

@@ -1,6 +1,6 @@
 
 <header>
-  <img src="logo.png" width="150" height="100">
+  <img src="docs\logo.png" width="150" height="100">
 
           <?php 
 
@@ -17,7 +17,7 @@ else{
     // header("location:loginpage.php");
     // echo "<script>location.href='login.php'</script>";
 
-     echo "<div align='right'> Logged in as <a href='dashboard.php'>".$_SESSION['username']."</a> | <a href='welcome.php'>Log Out</a></div>";
+     echo "<div align='right'> Logged in as <a href='viewprofile.php'>".$_SESSION['username']."</a> | <a href='welcome.php'>Log Out</a></div>";
   }
 
  ?>

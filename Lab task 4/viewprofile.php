@@ -60,27 +60,53 @@ footer {
 
 
 
+
 <header>
 
 	<?php
 	session_start();
-	 include 'docs\header.php';?></header>
+	 include 'docs\header.php';
+	 $email="jahnnabi.moni54@gmail.com";
+	 $name="jahnnabi Mazumder";
+	 $gender="Female";
+	 $dob="5/24/2000";
+
+
+
+	 ?></header>
 
 
 
 <section>
+   <?php 
+
+
+
+if (isset($_SESSION['username'])) {
+  echo "  
   <nav>
-     <div align="center">Account</div>
+     <div align='center'>Account</div>
     <hr>
     <ul>
       <li><a href='dashboard.php'>Dashboard</a></li>
       <li><a href='viewprofile.php'>View Profile</a></li>
-      <li><a href=' .php'>Edit Profile</a></li>
+      <li><a href='editprofile.php'>Edit Profile</a></li>
       <li><a href='chngprofilepic.php'>Change Profile Picture</a></li>
       <li><a href=' changepassword.php'>Change Password</a></li>
        <li><a href=' logout.php'>Log Out</a></li>
     </ul>
-  </nav>
+  </nav>";
+
+
+}
+else{
+    $msg="error";
+    header("location:loginpage.php");
+    // echo "<script>location.href='login.php'</script>";
+  }
+
+ ?>
+
   
   <article>
 
@@ -91,16 +117,20 @@ footer {
 if (isset($_SESSION['username'])) {
     echo "<fieldset>
 <legend><B>PROFILE</B></legend><div style= 'margin-right: 750px;float: left; text-align: left;color: blue;'> Username: ".$_SESSION['username']."<hr>
-  <br>Name: Mazumder, Jahnnabi<hr>
-  <br>Email: jahnnabi54@gmail.com<hr>
-  <br>Gender: Female<hr>
-  <br>Date Of Birth: 5/24/2000<hr>
+  <br>Name:".$name."<hr>
+  <br>Email: ".$email."<hr>
+  <br>Gender: ".$gender."<hr>
+  <br>Date Of Birth: ".$dob."<hr>
+  <br><a href='editprofile.php'>Edit Profile</a>
   </div>
-  <div style= 'float: right;position: absolute;left:600px; top: 200px;color: blue;'>
+  <div style= 'float: right;position: absolute;left:650px; top: 200px;color: blue;'>
   <fieldset>
-<img src='docs\dp.png' alt='Profile Picture' width='150' height='200'>
+<img src='docs\dp.png' alt='Profile Picture' width='150' height='200'><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='chngprofilepic.php'>change</a>
 </fieldset>
-  </div></fieldset>";
+  </div>
+
+  </fieldset>";
 
 
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Change Profile Picture</title>
+<title>View Profile</title>
 <style>
 * {
   box-sizing: border-box;
@@ -62,16 +62,41 @@ footer {
 
 
 <header>
-  <?php 
 
-session_start();
-  include 'docs\header.php';?>
-</header>
+	<?php
+	session_start();
+	 include 'docs\header.php';
+	 $email="jahnnabi.moni54@gmail.com";
+	 $name="jahnnabi Mazumder";
+	 $gender="Female";
+	 $dob="5/24/2000";
+   $checkm=$checkf=$checko="";
+
+   if ($gender=="Female")
+   {
+
+    $checkf="checked";
+
+   }
+   else if($gender=="Male")
+   {
+
+     $checkm="checked";
+
+   }
+   else
+   {
+    $checko="checked";
+   }
+
+
+
+	 ?></header>
 
 
 
 <section>
-  <?php 
+   <?php 
 
 
 
@@ -102,20 +127,41 @@ else{
 
   
   <article>
+
+    <?php 
+
+
+
+if (isset($_SESSION['username'])) {
+    echo "<fieldset>
+<legend><B>EDIT PROFILE</B></legend><div style= 'margin-right: 750px;float: left; text-align: left;color: blue;'> Username: <input type='text' name='name' value=".$name."><hr>
+  <br>Email:<input type='text' name='name' value=".$email."><hr>
+  <br>
+  Gender:
+
+  <input type='radio' name='gender'  value='female' ".$checkf.">Female
+  <input type='radio' name='gender' value='male' ".$checkm.">Male
+  <input type='radio' name='gender'  value='female'".$checko.">Other
+  <hr>
+  <br>Date Of Birth:<input type='text' name='name' value=".$dob."><hr>
+  </div>
+  <div style= 'float: right;position: absolute;left:650px; top: 200px;color: blue;'>
   <fieldset>
-	<legend><b>PROFLE PICTURE</b></legend>
-	<img src="docs\dp.png" alt="Profile_pic" width="150" height="150"><br>
-<form action="uploadpp.php" method="post" enctype="multipart/form-data">
-  <input type="file" name="fileToUpload" id="fileToUpload"><hr>
-  <input type="submit" value="Submit" name="submit">
+<img src='docs\dp.png' alt='Profile Picture' width='150' height='200'>
 </fieldset>
-</form>
+  </div></fieldset>";
+
+
+}
+
+ ?>
+
    
   </article>
 </section>
 
 <footer>
-<?php include 'docs\footer.php';?>
+  <?php include 'docs\footer.php';?>
 </footer>
 
 </body>

@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
 <?php
-$target_dir = "F:\7th semester\WEB TECH Files";
+$target_dir = "pics/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -47,3 +53,10 @@ if ($uploadOk == 0) {
   }
 }
 ?>
+<fieldset>
+<legend><B>PROFILE PICTURE</B></legend> <br>
+<br><img src="pics/<?php echo($_FILES["fileToUpload"]["name"]) ?>" alt="Profile Picture" width="180" height="200">
+</fieldset>
+
+</body>
+</html>
