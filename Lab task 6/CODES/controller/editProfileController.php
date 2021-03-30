@@ -10,6 +10,8 @@ $emailErr = $email = $phn = $phnErr = "";
 $message = '';  
 $error = ''; 
 
+$target_dir = "../uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -55,23 +57,22 @@ else
 );
       header("location:../editprofile.php?" . http_build_query($args));
    }
-}
+ }
 
 if($check == 1) {
 	$data['Email'] = $_POST['email'];
 	$data['Phone'] = $_POST['phone'];
-//   $data['Image'] = basename($_FILES["image"]["name"]);
+  $data['Image'] =$target_file;
 
-//   $target_dir = "../uploads/";
-//   $target_file = $target_dir . basename($_FILES["image"]["name"]);
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))  {
+    echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
 
-//   if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-//     echo "The file ". basename( $_FILES["image"]["name"]). " has been uploaded.";
-//   } else {
-//     echo "Sorry, there was an error uploading your file.";
-//   }
 
-  if (updateEmployee($tableName, $_SESSION['username'], $data)) {
+
+  if (updateEmployee($tableName, $_SESSION['username'],$data)) {
   	header('Location: ../viewprofile.php');
   }
   else {
@@ -79,6 +80,8 @@ if($check == 1) {
 	header('Location: ../editprofile.php');
 }
 }
+
+
 
 function test_input($data) {
   $data = trim($data);

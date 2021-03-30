@@ -51,25 +51,13 @@ if (isset($_SESSION['username'])) { ?>
   
   </div>
  <div style= 'float: right;position: absolute;left:580px; top: 240px;color: blue;'>
-
-    <form method="post" action='controller/uploadppController.php' method="post" enctype="multipart/form-data">
   <fieldset>
-<img src='<?php echo $corpEmployee['Image']; ?>' alt='Profile Picture' width='150' height='150'><br>
-  <input type='file' name='fileToUpload' id='fileToUpload'><hr>
-  <input type="submit" name="changeProPic" value="Change">
+<img src="uploads/<?php echo $corpEmployee['Image']; ?>" alt='Profile Picture' width='150' height='150'><br>
   <div style="color: red;"><?php if(!empty($_GET['msg'])){echo $_GET['msg'];} ?></div>
 </fieldset>
-</form>
   </div>
 
-
   </fieldset>
-
-
-
-
-
-   
   </article>
 </section>
 
